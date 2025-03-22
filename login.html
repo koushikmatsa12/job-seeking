@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Job Seeking - Login to your account to access personalized job recommendations and apply for positions.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" type="image/svg+xml">
+    <title>Login - Job Seeking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .modal-content button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .back-button:before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span>Job<span class="logo-highlight">Seeking</span></span>
+            </div>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <div style="min-height: 70vh; display: flex; justify-content: center; align-items: center; padding: 50px 0;">
+        <div id="login" class="login-box" style="display: block; width: 100%; max-width: 500px;">
+            <h2>Login to Your Account</h2>
+            <div class="login-input">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <p id="emailError" style="color: #e74c3c; display: none; font-size: 14px; margin-top: 5px;">Please enter a valid Gmail address.</p>
+            </div>
+            <div class="login-input">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <button id="loginButton" class="login-btn">Login</button>
+
+            <!-- Forgot Password Link -->
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="#" id="forgotPassword" style="color: #3498db; text-decoration: none; font-size: 14px;">Forgot Password?</a>
+            </div>
+
+            <p id="loginMessage" style="color: #e74c3c; text-align: center; margin-top: 15px;"></p>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <h2>Forgot Password</h2>
+            <p>Please enter your phone number to reset your password.</p>
+            <input type="text" id="phoneNumber" placeholder="Enter your phone number" maxlength="10">
+            <p id="phoneError" style="color: #e74c3c; display: none; font-size: 14px; margin-top: 5px;">Please enter a valid 10-digit phone number.</p>
+            <div id="captchaSection" style="display: none;">
+                <p>Please enter the captcha below:</p>
+                <div id="captchaDisplay" style="font-size: 20px; font-weight: bold; margin: 10px 0;"></div>
+                <input type="text" id="captchaInput" placeholder="Enter captcha">
+                <p id="captchaError" style="color: #e74c3c; display: none; font-size: 14px; margin-top: 5px;">Incorrect captcha. Please try again.</p>
+            </div>
+            <button id="submitPhone" disabled>Submit</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Job Seeking</h3>
+                <p>We connect talented professionals with top companies around the world. Our mission is to help you find your dream job.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@jobseeking.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Career Street, Job City, Employment State, 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Job Seeking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginButton');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const loginMessage = document.getElementById('loginMessage');
+            const emailError = document.getElementById('emailError');
+            const forgotPasswordLink = document.getElementById('forgotPassword');
+            const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+            const phoneInput = document.getElementById('phoneNumber');
+            const phoneError = document.getElementById('phoneError');
+            const submitPhoneBtn = document.getElementById('submitPhone');
+            const captchaSection = document.getElementById('captchaSection');
+            const captchaDisplay = document.getElementById('captchaDisplay');
+            const captchaInput = document.getElementById('captchaInput');
+            const captchaError = document.getElementById('captchaError');
+
+            let captcha = '';
+
+            // Validate email input
+            if (emailInput) {
+                emailInput.addEventListener('input', function() {
+                    if (!this.value.includes('@gmail.com')) {
+                        emailError.style.display = 'block';
+                    } else {
+                        emailError.style.display = 'none';
+                    }
+                });
+            }
+
+            // Handle login button click
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    if (!emailInput.value || !passwordInput.value) {
+                        loginMessage.textContent = 'Please enter both email and password.';
+                        return;
+                    }
+
+                    if (!emailInput.value.includes('@gmail.com')) {
+                        emailError.style.display = 'block';
+                        return;
+                    }
+
+                    localStorage.setItem('isLoggedIn', 'true');
+                    loginMessage.style.color = '#2ecc71';
+                    loginMessage.textContent = 'Login successful! Redirecting...';
+
+                    setTimeout(function() {
+                        window.location.href = 'home.html';
+                    }, 1000);
+                });
+            }
+
+            // Handle forgot password link
+            if (forgotPasswordLink) {
+                forgotPasswordLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    forgotPasswordModal.style.display = 'flex';
+                });
+            }
+
+            // Handle phone number input
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function() {
+                    if (this.value.length === 10 && /^\d+$/.test(this.value)) {
+                        phoneError.style.display = 'none';
+                        submitPhoneBtn.disabled = false;
+                    } else {
+                        phoneError.style.display = 'block';
+                        submitPhoneBtn.disabled = true;
+                    }
+                });
+            }
+
+            // Handle submit phone number
+            if (submitPhoneBtn) {
+                submitPhoneBtn.addEventListener('click', function() {
+                    captcha = generateCaptcha();
+                    captchaDisplay.textContent = captcha;
+                    captchaSection.style.display = 'block';
+                });
+            }
+
+            // Handle captcha input
+            if (captchaInput) {
+                captchaInput.addEventListener('input', function() {
+                    if (this.value === captcha) {
+                        captchaError.style.display = 'none';
+                        // Simulate login and redirect to home page
+                        localStorage.setItem('isLoggedIn', 'true');
+                        loginMessage.style.color = '#2ecc71';
+                        loginMessage.textContent = 'Login successful! Redirecting...';
+
+                        setTimeout(function() {
+                            window.location.href = 'home.html';
+                        }, 1000);
+                    } else {
+                        captchaError.style.display = 'block';
+                    }
+                });
+            }
+
+            // Generate a simple captcha
+            function generateCaptcha() {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let captcha = '';
+                for (let i = 0; i < 6; i++) {
+                    captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return captcha;
+            }
+        });
+    </script>
+</body>
+</html>

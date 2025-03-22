@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Job Seeking - Apply for your dream job and connect with top employers.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" type="image/svg+xml">
+    <title>Job Application - Job Seeking</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .back-button:before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .back-button {
+                top: 70px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span>Job<span class="logo-highlight">Seeking</span></span>
+            </div>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <section id="application-page" class="application-form">
+        <div id="notificationArea" class="notification"></div>
+        <h2>Job Application Form</h2>
+        <section>
+            <h3>Personal Information</h3>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Fillable Entry</th>
+                </tr>
+                <tr>
+                    <td>Full Name</td>
+                    <td><input type="text" id="fullName" name="fullName"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" id="address" name="address"></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>
+                        <div class="inline-inputs">
+                            <input type="text" id="city" name="city" placeholder="City">
+                            <input type="text" id="state" name="state" placeholder="State">
+                            <input type="text" id="zip" name="zip" placeholder="Zip">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td><input type="tel" id="phone" name="phone"></td>
+                </tr>
+                <tr>
+                    <td>Email Address</td>
+                    <td><input type="email" id="applicationEmail" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type="date" id="dob" name="dob" placeholder="MM/DD/YYYY (Optional)"></td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Position & Availability</h3>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Fillable Entry</th>
+                </tr>
+                <tr>
+                    <td>Position Applied For</td>
+                    <td><input type="text" id="position" name="position"></td>
+                </tr>
+                <tr>
+                    <td>Desired Salary</td>
+                    <td><input type="text" id="salary" name="salary" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <td>Date Available to Start</td>
+                    <td><input type="date" id="startDate" name="startDate" placeholder="MM/DD/YYYY"></td>
+                </tr>
+                <tr>
+                    <td>Eligible to work in the United States?</td>
+                    <td>
+                        <div class="radio-group">
+                            <label><input type="radio" name="eligible" value="yes"> Yes</label>
+                            <label><input type="radio" name="eligible" value="no"> No</label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Education Background</h3>
+            <div class="form-group">
+                <label for="education">Please summarize your educational background:</label>
+                <textarea id="education" name="education" rows="4" cols="50"></textarea>
+            </div>
+        </section>
+        <section>
+            <h3>Upload Resume</h3>
+            <div class="form-group">
+                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+            </div>
+        </section>
+        <button type="button" id="submitApplicationBtn">Submit Application</button>
+        <p class="disclaimer">Copyright @ Job Seeking 2025</p>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Job Seeking</h3>
+                <p>We connect talented professionals with top companies around the world. Our mission is to help you find your dream job.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@jobseeking.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Career Street, Job City, Employment State, 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Job Seeking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add event listener after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event to the submit application button
+            const submitBtn = document.getElementById('submitApplicationBtn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    submitApplicationForm();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Job Seeking - Learn more about our mission to connect job seekers with their dream careers.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" type="image/svg+xml">
+    <title>About Us - Job Seeking</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .back-button:before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .back-button {
+                top: 70px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span>Job<span class="logo-highlight">Seeking</span></span>
+            </div>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <section id="about-page">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a dedicated team committed to connecting job seekers with their dream jobs. Our platform provides a seamless experience for both job seekers and employers.</p>
+            <p>Our mission is to simplify the job search process and help individuals find opportunities that match their skills and aspirations.</p>
+            <p>Join us today and take the next step in your career!</p>
+            <div class="dashboard-container">
+                <h2>Success Percentage Dashboard</h2>
+                <canvas id="successChart"></canvas>
+            </div>
+            <div class="successful-members">
+                <h2>Successful Members</h2>
+                <div class="members-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Company</th>
+                                <th>Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>John Doe</td><td>TechCorp</td><td>$120,000</td></tr>
+                            <tr><td>Jane Smith</td><td>DataX</td><td>$110,000</td></tr>
+                            <tr><td>Alice Johnson</td><td>Productify</td><td>$130,000</td></tr>
+                            <tr><td>Bob Brown</td><td>WebWorks</td><td>$115,000</td></tr>
+                            <tr><td>Charlie Davis</td><td>CreativeVision</td><td>$105,000</td></tr>
+                            <tr><td>Eva Wilson</td><td>DesignHub</td><td>$125,000</td></tr>
+                            <tr><td>Frank Miller</td><td>SEOPro</td><td>$100,000</td></tr>
+                            <tr><td>Grace Lee</td><td>Brandify</td><td>$135,000</td></tr>
+                            <tr><td>Henry Garcia</td><td>DataInsights</td><td>$140,000</td></tr>
+                            <tr><td>Ivy Martinez</td><td>TechBuild</td><td>$150,000</td></tr>
+                            <tr><td>Jack Robinson</td><td>Innovative Solutions</td><td>$118,000</td></tr>
+                            <tr><td>Karen Clark</td><td>AnalyzePro</td><td>$112,000</td></tr>
+                            <tr><td>Leo Lewis</td><td>TechEdge</td><td>$128,000</td></tr>
+                            <tr><td>Mia Walker</td><td>CodeCraft</td><td>$122,000</td></tr>
+                            <tr><td>Noah Hall</td><td>PixelCrafters</td><td>$108,000</td></tr>
+                            <tr><td>Olivia Young</td><td>UXStudio</td><td>$132,000</td></tr>
+                            <tr><td>Paul Allen</td><td>BoostSearch</td><td>$107,000</td></tr>
+                            <tr><td>Quinn King</td><td>MarketSpark</td><td>$137,000</td></tr>
+                            <tr><td>Rachel Scott</td><td>VisionaryConsult</td><td>$142,000</td></tr>
+                            <tr><td>Steve Green</td><td>StackLab</td><td>$145,000</td></tr>
+                            <tr><td>Tina Baker</td><td>CodeMasters</td><td>$119,000</td></tr>
+                            <tr><td>Uma Patel</td><td>DeepMind</td><td>$123,000</td></tr>
+                            <tr><td>Victor Carter</td><td>InnovateInc</td><td>$126,000</td></tr>
+                            <tr><td>Wendy Adams</td><td>TechNest</td><td>$116,000</td></tr>
+                            <tr><td>Xander Evans</td><td>DesignWave</td><td>$124,000</td></tr>
+                            <tr><td>Yara Rivera</td><td>UIXperts</td><td>$129,000</td></tr>
+                            <tr><td>Zack Torres</td><td>RankX</td><td>$114,000</td></tr>
+                            <tr><td>Anna White</td><td>AdMasters</td><td>$131,000</td></tr>
+                            <tr><td>Brian Harris</td><td>MarketScope</td><td>$133,000</td></tr>
+                            <tr><td>Cathy Nelson</td><td>CodeFusion</td><td>$138,000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Job Seeking</h3>
+                <p>We connect talented professionals with top companies around the world. Our mission is to help you find your dream job.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@jobseeking.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Career Street, Job City, Employment State, 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Job Seeking. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

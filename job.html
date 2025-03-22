@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Job Seeking - Browse and apply for hundreds of job opportunities across different industries.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" type="image/svg+xml">
+    <title>Browse Jobs - Job Seeking</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .back-button:before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .back-button {
+                top: 70px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span>Job<span class="logo-highlight">Seeking</span></span>
+            </div>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back</button>
+
+    <section id="job-page" class="selection-process">
+        <h2>Job Listings</h2>
+        <div class="job-search">
+            <select id="job-select" onchange="handleJobSelection(this)">
+                <option value="">Select a job</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Product Manager">Product Manager</option>
+                <option value="Web Developer">Web Developer</option>
+                <option value="Graphic Designer">Graphic Designer</option>
+                <option value="UX/UI Designer">UX/UI Designer</option>
+                <option value="SEO Specialist">SEO Specialist</option>
+                <option value="Marketing Strategist">Marketing Strategist</option>
+                <option value="Business Analyst">Business Analyst</option>
+                <option value="Full Stack Developer">Full Stack Developer</option>
+            </select>
+            <button onclick="handleJobSelection(document.getElementById('job-select'))">Search</button>
+        </div>
+        <div class="job-listings" id="job-listings"></div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Job Seeking</h3>
+                <p>We connect talented professionals with top companies around the world. Our mission is to help you find your dream job.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="home.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="login.html">Login</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@jobseeking.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Career Street, Job City, Employment State, 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Job Seeking. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
